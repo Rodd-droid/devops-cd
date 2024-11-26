@@ -23,7 +23,7 @@ This project is a simple Express.js application deployed on an EC2 instance usin
 
 ## Routes
 
-- **Home (/):**: Renders a basic HTML view using EJS with a welcoming message and static image.
+- **Home (/)**: Renders a basic HTML view using EJS with a welcoming message and static image.
 
 ## Setup Instructions
 
@@ -56,9 +56,9 @@ This will expose the app at http://localhost:3000.
 
 - **Triggers**: Deployment is triggered on every push to the main branch.
 - **Deployment Steps**: Deployment is triggered on every push to the main branch.
- - Checkout code from GitHub.
- - Connect to the EC2 instance via SSH.
- - Pull the latest changes, install dependencies, and restart the server using PM2.
+  - Checkout code from GitHub.
+  - Connect to the EC2 instance via SSH.
+  - Pull the latest changes, install dependencies, and restart the server using PM2.
 
 ### Dependencies
 
