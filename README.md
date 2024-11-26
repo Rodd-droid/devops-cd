@@ -1,54 +1,66 @@
-# practice1.js
+# devops-cd
 
-This project is a simple Express.js application that has been dockerized. The app exposes two main routes and is ready to be run inside a Docker container.
+This project is a simple Express.js application deployed on an EC2 instance using GitHub Actions for Continuous Deployment. The application includes a basic view and static files for a more interactive web interface.
 
-## Files
+## Features
 
-- **app.js**: Contains the Express.js application, which exposes two routes:
-  - `/`: Returns a JSON message `"Hello, World from Dockerized Express App!"`.
-  - `/greet/:name`: Returns a personalized greeting based on the `name` parameter.
-- **Dockerfile**: Defines the Docker environment to run the Express.js application.
+- **Express.js Application**: Includes routes and a view rendering system using EJS templates.
+- **Static File Serving**: Serves images, CSS, and other assets from the /public directory.
+- **CD Pipeline**: Configured with GitHub Actions to automatically deploy updates to an EC2 instance.
 
 ## File Structure
 
-├── app.js 
-├── Dockerfile 
-└── package.json
+├── app.js          
+├── views/
+│   └── index.ejs     
+├── public/
+│   ├── css/
+│   │   └── styles.css
+│   ├── images/
+│   │   └── chill.webp
+├── package.json
+├── pm2.config.js
+└── Dockerfile
 
 
-## Instructions to Run the Application
+## Routes
+
+- **Home (/):**: Renders a basic HTML view using EJS with a welcoming message and static image.
+
+## Setup Instructions
 
 ### 1. Clone the Repository
 
-Clone this repository to your local machine:
-
 ```bash
-git clone https://github.com/Rodd-droid/practice1.js.git
-cd practice1.js
+git clone https://github.com/Rodd-droid/devops-cd.git
+cd devops-cd
 ```
 
-### 2. Build the Docker Container
+### 2. Install Dependencies
 
-To build the Docker image, run:
+Install the required dependencies:
 
 ```bash
-docker build -t node-app .
+npm install
 ```
 
-### 3. Run the Container
+### 3. Run Locally
 
-To start the container, use the following command:
+Start the application locally:
 
 ```bash
-docker run -p 3000:3000 express-docker-app
+npm start
 ```
 
 This will expose the app at http://localhost:3000.
 
-### 4. Test the Application
+### 4. Continuous Deployment with GitHub Actions
 
-- Home route: Go to http://localhost:3000/ to receive a JSON message "Hello, World from Dockerized Express App!".
-- Greet route: Go to http://localhost:3000/greet/{name}, replacing {name} with any name you choose, to get a personalized greeting.
+- **Triggers**: Deployment is triggered on every push to the main branch.
+- **Deployment Steps**: Deployment is triggered on every push to the main branch.
+ - Checkout code from GitHub.
+ - Connect to the EC2 instance via SSH.
+ - Pull the latest changes, install dependencies, and restart the server using PM2.
 
 ### Dependencies
 
@@ -61,9 +73,6 @@ The application requires the following dependencies, listed in the package.json 
 ```bash
 # Test the home route
 curl http://localhost:3000/
-
-# Test the personalized greeting route
-curl http://localhost:3000/greet/Rodrigo
 ```
 
 ### Author
