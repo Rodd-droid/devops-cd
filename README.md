@@ -18,9 +18,7 @@ This project is a simple Express.js application deployed on an EC2 instance usin
 │   │   └── styles.css
 │   ├── images/
 │   │   └── chill.webp
-├── package.json
-├── pm2.config.js
-└── Dockerfile
+└── package.json
 
 
 ## Routes
