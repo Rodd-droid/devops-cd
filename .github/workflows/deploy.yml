@@ -27,6 +27,6 @@ jobs:
             cd /home/ubuntu/devops-cd
             git pull origin main
             npm install
-            pm2 start app.js --name "practice1" || pm2 restart "practice1"
+            pm2 start app.js --name "devops" || pm2 restart "devops"
             pm2 save
           EOF
