@@ -60,18 +60,16 @@ This will expose the app at http://localhost:3000.
   - Connect to the EC2 instance via SSH.
   - Pull the latest changes, install dependencies, and restart the server using PM2.
 
-### Dependencies
-
-The application requires the following dependencies, listed in the package.json file:
-
-- express: Web framework for building Node.js web applications.
-
 ### Usage Example
 
 ```bash
 # Test the home route
 curl http://localhost:3000/
 ```
+
+### Evidence
+
+![App Preview](public/images/evidence.png)
 
 ### Author
 Project developed by Rodrigo Quilumba.
